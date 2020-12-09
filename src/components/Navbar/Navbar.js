@@ -1,24 +1,31 @@
 import React from 'react';
 import './Navbar.css';
+import Moe from './moe.png';
+
+import CartWidget from '../CartWidget/CartWidget'
 
 let Navbar = () => {
     return (
-        <div>
+        <>
             <header className="navbar">
-                <div>
-                    <h1>Taverna de Moe</h1>
+                <div className="logo">
+                    <img src={Moe} alt="Moe" className="moe" />
+                    <h1>Taberna de Moe</h1>
                 </div>
-                <nav className="nav">
-                    <ul>
-                        <li><a href="http://www.google.com.ar">Aperitivos</a></li>
-                        <li><a href="http://www.google.com.ar">Cervezas</a></li>
-                        <li><a href="http://www.google.com.ar">Espumantes</a></li>
-                        <li><a href="http://www.google.com.ar">Licores</a></li>
-                        <li><a href="http://www.google.com.ar">Gin</a></li>
-                    </ul>
-                </nav>
+                <div className="nav">
+                    <nav>
+                        <ul>
+                            <li><a href="http://www.google.com.ar">Aperitivos</a></li>
+                            <li><a href="http://www.google.com.ar">Cervezas</a></li>
+                            <li><a href="http://www.google.com.ar">Espumantes</a></li>
+                            <li><a href="http://www.google.com.ar">Licores</a></li>
+                            <li><a href="http://www.google.com.ar">Gin</a></li>
+                        </ul>
+                    </nav>
+                    <CartWidget />
+                </div>
             </header>
-        </div>
+        </>
     );
 }
 
