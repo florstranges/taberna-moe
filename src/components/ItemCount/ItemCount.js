@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './ItemCount.css';
 import Corona from './corona.png';
 
-function ItemCount({ stock, initial }) {
+function ItemCount({ stock, initial, onAdd }) {
     
     const [contador, setContador] = useState(initial);
     
@@ -17,8 +17,10 @@ function ItemCount({ stock, initial }) {
         }
     }
 
-    const add = () => {
-        console.log = (`Agregaste ${contador} items`)
+    const handleAdd = () => {
+        if (contador <= stock){
+            alert (`Agregaste ${contador} items`)
+            }
     }
 
     return (
@@ -29,7 +31,7 @@ function ItemCount({ stock, initial }) {
                 <p>Cantidad: {contador} </p>
                 <button onClick={agregar} className="botonAccion">+</button>
                 <button onClick={quitar} className="botonAccion">-</button>
-                <button onClick={add} className="agregar">Agregar al carrito</button>
+                <button onClick={handleAdd} className="agregar">Agregar al carrito</button>
             </div>
         </>
     );

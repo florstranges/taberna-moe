@@ -11,7 +11,7 @@ function App() {
     <>
     <Navbar />
     <ItemListContainer saludo="¡Bienvenido a mi Taberna!" />
-    <ItemCount stock={10}  initial={1} />
+    <ItemCount stock={10}  initial={1} onAdd={"handleAdd"} />
     <Footer />
     </>
   );
