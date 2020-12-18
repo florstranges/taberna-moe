@@ -17,11 +17,6 @@ function ItemCount({ stock, initial, onAdd }) {
         }
     }
 
-    const handleAdd = () => {
-        if (contador <= stock){
-            alert (`Agregaste ${contador} items`)
-            }
-    }
 
     return (
         <>
@@ -31,7 +26,7 @@ function ItemCount({ stock, initial, onAdd }) {
                 <p>Cantidad: {contador} </p>
                 <button onClick={agregar} className="botonAccion">+</button>
                 <button onClick={quitar} className="botonAccion">-</button>
-                <button onClick={handleAdd} className="agregar">Agregar al carrito</button>
+                <button onClick={onAdd} className="agregar">Agregar al carrito</button>
             </div>
         </>
     );

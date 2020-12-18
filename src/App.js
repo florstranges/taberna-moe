@@ -6,12 +6,21 @@ import Footer from './components/Footer/Footer';
 
 
 function App() {
+  
+  let stock = 10
+
+  const handleAdd = (contador) => {
+    if (contador <= stock){
+      alert (`Agregaste ${contador} items`)
+    }
+  }
+
 
   return (
     <>
     <Navbar />
     <ItemListContainer saludo="¡Bienvenido a mi Taberna!" />
-    <ItemCount stock={10}  initial={1} onAdd={"handleAdd"} />
+    <ItemCount initial={1} stock={stock} onAdd={handleAdd} />
     <Footer />
     </>
   );
