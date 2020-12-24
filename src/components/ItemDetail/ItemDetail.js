@@ -9,6 +9,7 @@ const ItemDetail = ({item}) => {
                 <h3>{item.title}</h3>
                 <p className="itemDetail__serial">S/N {item.id}</p>
                 <img src={item.picture} alt="Imagen_producto" className="itemDetail__img" />
+                <p>{item.description}</p>
                 <p className="itemDetail__precio" >$ {item.price}</p>
                 <button className="agregar">Agregar al carrito</button>
             </div>

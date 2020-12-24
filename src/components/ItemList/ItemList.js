@@ -24,7 +24,6 @@ const ItemList = () => {
                         <div className="itemList">
                             <h3>{item.title}</h3>
                             <img scr={item.picture} alt="Imagen_Producto" />
-                            <p>{item.description}</p>
                             <p>${item.price}</p>
                         </div>
                     </>

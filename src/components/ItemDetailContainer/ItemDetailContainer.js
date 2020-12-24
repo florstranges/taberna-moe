@@ -9,34 +9,35 @@ const ItemDetailContainer = (props) => {
     const arrayProduct = new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve({
-                id: 3,
-                title: "Cerveza Quilmes Stout",
-                description: "Negra",
-                price: 110,
-                picture: "https://www.cdparque.com/img/sections/productos/quilmes_stout.png"
+                serial: 3,
+                title: "Cerveza negra Quilmes Stout 340 Ml porrón retornable",
+                description: "Destacada por su cuerpo y espuma cremosa, recuerda al sabor del chocolate y al amargor del café.",
+                price: 90,
+                picture: "https://www.cdparque.com/img/sections/productos/quilmes_stout.png",
+                stock: 50
             })
         }, 2000);
     });
 
-    useEffect (() => {
+    useEffect(() => {
         arrayProduct
-        .then(response => setProduct(response))
-        .catch(error => console.log(error));
+            .then(response => setProduct(response))
+            .catch(error => console.log(error));
     }, []);
 
 
-    return(
+    return (
         <>
-        { product.length === 0 ?
-            <p>Cargando producto...</p>:
+            { product.length === 0 ?
+                <p>Cargando producto...</p> :
 
-            <div>
-                <ItemDetail item={product} />
-            </div> 
-        }
+                <div>
+                    <ItemDetail item={product} />
+                </div>
+            }
         </>
     )
-    }
+}
 
 
 export default ItemDetailContainer
