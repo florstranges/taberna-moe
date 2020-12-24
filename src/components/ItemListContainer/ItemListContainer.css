@@ -3,3 +3,9 @@
     color: #370075;
     padding: 1em;
 }
+
+.itemListC__titulo{
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: underline;
+}

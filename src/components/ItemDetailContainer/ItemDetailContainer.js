@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { productDetails } from '../Item/Item';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
 
@@ -7,37 +6,39 @@ const ItemDetailContainer = (props) => {
 
     const [product, setProduct] = useState([]);
 
-    useEffect(() => {
-        const arrayDatos = fetch (productDetails)
-        arrayDatos.then ((resultado) => {
-            if (resultado.status === 200 ){
-                return resultado.json();
-            }
-        })
-        .then ((resultado) => {
-            setTimeout(() => {
-                setProduct(resultado)
-            }, 2000);
-        })
-        
-    }, [])
-
-    return (
-        <>
-            {product.map((e) => {
-                return(
-                    <ItemDetail
-                        title={product.title}
-                        picture={product.picture}
-                        price={product.price}
-                    />
-                )
+    const arrayProduct = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve({
+                id: 3,
+                title: "Cerveza Quilmes Stout",
+                description: "Negra",
+                price: 110,
+                picture: "https://www.cdparque.com/img/sections/productos/quilmes_stout.png"
             })
-            }
-        
+        }, 2000);
+    });
+
+    useEffect (() => {
+        arrayProduct
+        .then(response => setProduct(response))
+        .catch(error => console.log(error));
+    }, []);
+
+
+    return(
+        <>
+        {
+            product ?
+
+            <div>
+                <ItemDetail item={product} />
+            </div> :
+            <p>Cargando producto...</p>
+        }
         </>
     )
-}
+    }
+
 
 export default ItemDetailContainer
 

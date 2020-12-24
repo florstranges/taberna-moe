@@ -22,7 +22,7 @@ const ItemList = () => {
                 return (
                     <>
                         <div className="itemList">
-                            <h2>{item.title}</h2>
+                            <h3>{item.title}</h3>
                             <img scr={item.picture} alt="Imagen_Producto" />
                             <p>{item.description}</p>
                             <p>${item.price}</p>

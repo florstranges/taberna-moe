@@ -17,6 +17,7 @@ function ItemListContainer({ saludo }) {
     return (
         <div>
             <h1 className="saludo">{saludo}</h1>
+            <h2 className="itemListC__titulo">Nuestros Productos</h2>
 
             <ItemList />
             {/* <ItemCount initial={1} stock={stock} onAdd={handleAdd} /> */}
