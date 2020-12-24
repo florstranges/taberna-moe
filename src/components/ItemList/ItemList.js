@@ -23,7 +23,7 @@ const ItemList = () => {
                     <>
                         <div className="itemList">
                             <h2>{item.title}</h2>
-                            <img scr={item.pictureUrl} alt="Imagen Producto" />
+                            <img scr={item.picture} alt="Imagen_Producto" />
                             <p>{item.description}</p>
                             <p>${item.price}</p>
                         </div>

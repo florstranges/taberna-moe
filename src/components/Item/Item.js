@@ -4,35 +4,35 @@ export const productDetails = [
         title: "Cerveza Corona",
         description: "Rubia",
         price: 140,
-        pictureUrl: 'https://www.cdparque.com/img/sections/productos/corona.png'
+        picture: "https://www.cdparque.com/img/sections/productos/corona.png"
     },
     {
         id: 2 ,
         title: "Cerveza Stella",
         description: "Rubia",
         price: 100,
-        pictureUrl: 'https://www.laconstancia.com/system/balloom/asset/pictures/attachments/000/001/150/original/01-stella.png'
+        picture: "https://www.laconstancia.com/system/balloom/asset/pictures/attachments/000/001/150/original/01-stella.png"
     },
     {
         id: 3 ,
         title: "Cerveza Quilmes Stout",
         description: "Negra",
         price: 110,
-        pictureUrl: 'https://www.cdparque.com/img/sections/productos/quilmes_stout.png'
+        picture: "https://www.cdparque.com/img/sections/productos/quilmes_stout.png"
     },
     {
         id: 4,
         title: "Cerveza Brahma",
         description: "Rubia",
         price: 80,
-        pictureUrl: 'https://www.cdparque.com/img/sections/productos/brahma.png'
+        picture: "https://www.cdparque.com/img/sections/productos/brahma.png"
     },
     {
         id: 5,
         title: "Cerveza Antares",
         description: "Scotch",
         price: 150,
-        pictureUrl: 'https://manyando.files.wordpress.com/2014/10/cerveza-artesanal-antares-kolsch-scotch-porter-cajax12x500cc-19165-mla20167387464_092014-f.png'
+        picture: "https://manyando.files.wordpress.com/2014/10/cerveza-artesanal-antares-kolsch-scotch-porter-cajax12x500cc-19165-mla20167387464_092014-f.png"
     }
 ]
 
