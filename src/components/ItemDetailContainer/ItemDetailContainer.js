@@ -27,13 +27,12 @@ const ItemDetailContainer = (props) => {
 
     return(
         <>
-        {
-            product ?
+        { product.length === 0 ?
+            <p>Cargando producto...</p>:
 
             <div>
                 <ItemDetail item={product} />
-            </div> :
-            <p>Cargando producto...</p>
+            </div> 
         }
         </>
     )

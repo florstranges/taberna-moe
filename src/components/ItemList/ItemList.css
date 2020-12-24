@@ -1,6 +1,9 @@
 .itemList{
-    padding: 20px;
+    border: 2px solid #fdba31;
+    box-shadow: 2px 2px 2px 1px #37007536;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
+    margin: 20px;
 }

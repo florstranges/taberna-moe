@@ -5,7 +5,6 @@ const ItemDetail = ({item}) => {
     
     return (
         <article>
-            <h2 className="itemDetail__titulo">Productos Destacados del Mes</h2>
             <div className="itemDetail">
                 <h3>{item.title}</h3>
                 <p className="itemDetail__serial">S/N {item.id}</p>

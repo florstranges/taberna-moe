@@ -2,6 +2,7 @@ import React from 'react';
 import './ItemListContainer.css';
 /* import ItemCount from "../ItemCount/ItemCount"; */
 import ItemList from '../ItemList/ItemList';
+import ItemDetailContainer from '../ItemDetailContainer/ItemDetailContainer';
 
 
 function ItemListContainer({ saludo }) {
@@ -21,6 +22,8 @@ function ItemListContainer({ saludo }) {
 
             <ItemList />
             {/* <ItemCount initial={1} stock={stock} onAdd={handleAdd} /> */}
+            <h2 className="itemDetail__titulo">Productos Destacados del Mes</h2>
+            <ItemDetailContainer />
         </div>
     );
 }

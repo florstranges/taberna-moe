@@ -11,7 +11,6 @@ function App() {
     <>
     <Navbar />
     <ItemListContainer saludo="¡Bienvenido a mi Taberna!" />
-    <ItemDetailContainer />
     <Footer />
     </>
   );

@@ -33,6 +33,14 @@ export const productDetails = [
     },
     {
         serial: 5,
+        title: "Cerveza Heineken",
+        description: "Rubia",
+        price: 300,
+        picture: "https://www.heineken.com/media-us/01pfxdqq/heineken-original-bottle.png?quality=85",
+        stock: 100
+    },
+    {
+        serial: 6,
         title: "Cerveza Antares",
         description: "Scotch",
         price: 150,
