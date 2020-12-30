@@ -2,25 +2,24 @@ import React from 'react';
 import './Navbar.css';
 import Moe from './moe.png';
 
-import CartWidget from '../CartWidget/CartWidget'
+import CartWidget from '../CartWidget/CartWidget';
+import {NavLink} from 'react-router-dom';
 
 let Navbar = () => {
+    
     return (
         <>
             <header className="navbar">
                 <div className="logo">
                     <img src={Moe} alt="Moe" className="moe" />
-                    <h1>Taberna de Moe</h1>
+                    <NavLink to='/'>
+                        <h1>Taberna de Moe</h1>
+                    </NavLink>
                 </div>
                 <div className="nav">
                     <nav>
-                        <ul>
-                            <li><a href="http://www.google.com.ar">Aperitivos</a></li>
-                            <li><a href="http://www.google.com.ar">Cervezas</a></li>
-                            <li><a href="http://www.google.com.ar">Espumantes</a></li>
-                            <li><a href="http://www.google.com.ar">Licores</a></li>
-                            <li><a href="http://www.google.com.ar">Gin</a></li>
-                        </ul>
+                        <NavLink to='/cervezas' className="nav__a" >Cervezas</NavLink>
+                        <NavLink to='/carrito' className="nav__a" >Carrito</NavLink>
                     </nav>
                     <CartWidget />
                 </div>

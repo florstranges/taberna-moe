@@ -30,12 +30,6 @@
     font-weight: 500;
 }
 
-.itemDetail__titulo{
-    margin-top: 30px;
-    text-align: center;
-    text-decoration: underline;
-}
-
 .itemDetail__serial{
     font-size: 15px;
 }

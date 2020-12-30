@@ -1,6 +1,6 @@
 export const productDetails = [
     {
-        serial: 1,
+        id: 1,
         title: "Cerveza Rubia Corona 330 Ml Porrón Descartable",
         description: "Corona es una cerveza premium, clásica y auténtica, reconocida mundialmente por su alta calidad, su sabor distintivo e imagen.",
         price: 100,
@@ -8,7 +8,7 @@ export const productDetails = [
         stock: 10
     },
     {
-        serial: 2 ,
+        id: 2 ,
         title: "Cerveza Rubia Stella Artois 975 Ml Botella Retornable",
         description: "La cerveza belga número 1 en ventas a nivel mundial.",
         price: 160,
@@ -16,7 +16,7 @@ export const productDetails = [
         stock: 20
     },
     {
-        serial: 3 ,
+        id: 3 ,
         title: "Cerveza negra Quilmes Stout 340 Ml porrón retornable",
         description: "Destacada por su cuerpo y espuma cremosa, recuerda al sabor del chocolate y al amargor del café.",
         price: 90,
@@ -24,7 +24,7 @@ export const productDetails = [
         stock: 50
     },
     {
-        serial: 4,
+        id: 4,
         title: "Cerveza Brahma Chopp 1 L botella retornable",
         description: "Brahma nació en Brasil en 1888 como una cerveza de rico sabor con cuerpo suave y refrescante.",
         price: 120,
@@ -32,7 +32,7 @@ export const productDetails = [
         stock: 70
     },
     {
-        serial: 5,
+        id: 5,
         title: "Cerveza Heineken Premiun Retornable 1 L",
         description: "Heineken es la cerveza Premium número 1 de Europa y la más internacional del mundo",
         price: 200,
@@ -40,7 +40,7 @@ export const productDetails = [
         stock: 100
     },
     {
-        serial: 6,
+        id: 6,
         title: "Cerveza Antares Scotch",
         description: "Rubí, Maltosa, Fácil de tomar",
         price: 150,

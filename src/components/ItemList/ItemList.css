@@ -9,3 +9,13 @@
     width: 300px;
     text-align: center;
 }
+
+.itemList img{
+    height: 150px;
+}
+
+.item__titulo{
+        text-align: center;
+        color: #370075;
+        padding: 1em;
+}
