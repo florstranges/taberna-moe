@@ -75,7 +75,7 @@ const ItemDetailContainer = () => {
         promise
         .then(resolve=>{
             if(id){
-                setItem(resolve.filter(item=>item.id==id)[0])
+                setItem(resolve.filter(item=>item.id===id)[0])
             }
         })
         .catch(reject=>{

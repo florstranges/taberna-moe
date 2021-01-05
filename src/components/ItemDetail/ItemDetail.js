@@ -1,9 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './ItemDetail.css';
-import ItemCount from '../ItemCount/ItemCount'
+import ItemCount from '../ItemCount/ItemCount';
+import {Link} from 'react-router-dom';
 
 const ItemDetail = ({item}) => {
-    
+    const [compra, setCompra] = useState(null);
+
+    const handleAddProduct = (e, qty) => {
+        e.stopPropagation();
+
+        setCompra ({
+            cantidad: qty,
+            item,
+        })
+    }
+
+    console.log(compra);
+
     return (
         <article>
             <div className="itemDetail">
@@ -12,7 +25,12 @@ const ItemDetail = ({item}) => {
                 <img src={item.picture} alt="Imagen_producto" className="itemDetail__img" />
                 <p>{item.description}</p>
                 <p className="itemDetail__precio" >$ {item.price}</p>
-                <ItemCount stock={10} initial={1}/>
+                {
+                    !compra && <ItemCount stock={10} initial={1} onAdd={handleAddProduct} />
+                }
+                {
+                    compra && <Link to="/carrito">Terminar compra</Link>
+                }
             </div>
         </article>
     )

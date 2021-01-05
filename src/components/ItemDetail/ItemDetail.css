@@ -33,3 +33,15 @@
 .itemDetail__serial{
     font-size: 15px;
 }
+
+.itemDetail a{
+    display: block;
+    width: 100%;
+    color: #370075;
+    background-color: #fdba31;
+    border: none;
+    margin: 5px;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+}
