@@ -1,0 +1,8 @@
+.item__detalle a{
+    color: #370075;
+    text-decoration: none;
+    font-weight: 700;
+}
+.item__detalle{
+    margin-top: 15px;
+}

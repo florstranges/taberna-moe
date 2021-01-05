@@ -5,7 +5,6 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Carrito from './components/Carrito/Carrito';
 import Cervezas from './components/Productos/Cervezas';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import ItemDetail from './components/ItemDetail/ItemDetail';
 
 function App() {
   
@@ -22,12 +21,12 @@ function App() {
           <Cervezas />
         </Route>
 
-        <Route path="/ItemDetailContainer/:id">
-          <ItemDetailContainer />
+        <Route path="/category/:id">
+          <ItemListContainer/> 
         </Route>
 
-        <Route path="/ItemDetail">
-          <ItemDetail />
+        <Route path="/item/:id">
+          <ItemDetailContainer/>
         </Route>
 
         <Route path='/carrito'>

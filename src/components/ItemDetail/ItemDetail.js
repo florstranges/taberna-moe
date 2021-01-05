@@ -1,5 +1,6 @@
 import React from 'react';
 import './ItemDetail.css';
+import ItemCount from '../ItemCount/ItemCount'
 
 const ItemDetail = ({item}) => {
     
@@ -11,7 +12,7 @@ const ItemDetail = ({item}) => {
                 <img src={item.picture} alt="Imagen_producto" className="itemDetail__img" />
                 <p>{item.description}</p>
                 <p className="itemDetail__precio" >$ {item.price}</p>
-                
+                <ItemCount stock={10} initial={1}/>
             </div>
         </article>
     )

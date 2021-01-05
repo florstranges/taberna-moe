@@ -19,3 +19,7 @@
         color: #370075;
         padding: 1em;
 }
+
+.bloque{
+    display: flex;
+}
