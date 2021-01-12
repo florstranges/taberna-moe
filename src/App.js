@@ -5,10 +5,12 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Carrito from './components/Carrito/Carrito';
 import Cervezas from './components/Productos/Cervezas';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import CartProvider from './components/Context/Context';
 
 function App() {
   
   return (
+    <CartProvider>
     <BrowserRouter>
       <Navbar />
 
@@ -37,6 +39,7 @@ function App() {
       
       <Footer />
     </BrowserRouter>
+    </CartProvider>
   );
 }
 

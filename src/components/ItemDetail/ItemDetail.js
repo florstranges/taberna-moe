@@ -2,20 +2,22 @@ import React, {useState} from 'react';
 import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
 import {Link} from 'react-router-dom';
+import {useCartContext} from '../Context/Context';
 
 const ItemDetail = ({item}) => {
-    const [compra, setCompra] = useState(null);
+    const {addToCart} = useCartContext();
+    const [showCounter, setShowCounter] = useState(true);
 
     const handleAddProduct = (e, qty) => {
         e.stopPropagation();
 
-        setCompra ({
+        addToCart({
             cantidad: qty,
             item,
-        })
-    }
+        }, qty)
 
-    console.log(compra);
+        setShowCounter(false);
+    }
 
     return (
         <article>
@@ -26,10 +28,10 @@ const ItemDetail = ({item}) => {
                 <p>{item.description}</p>
                 <p className="itemDetail__precio" >$ {item.price}</p>
                 {
-                    !compra && <ItemCount stock={10} initial={1} onAdd={handleAddProduct} />
+                    showCounter && <ItemCount stock={10} initial={1} onAdd={handleAddProduct} />
                 }
                 {
-                    compra && <Link to="/carrito">Terminar compra</Link>
+                    !showCounter && <Link to="/carrito">Terminar compra</Link>
                 }
             </div>
         </article>
