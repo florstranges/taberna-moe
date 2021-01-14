@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    margin: 20px;
+    margin: 10px;
     width: 300px;
     text-align: center;
 }
@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 20px;
 }
 
 .carrito h1{
@@ -39,4 +40,25 @@
     margin-bottom: 20px;
     font-weight: 600;
     font-size: 20px;
+}
+
+.carritoContenedor{
+    text-align: center;
+}
+
+.carritoVacioMensaje{
+    font-size: 30px;
+    margin: 20px;
+}
+
+.carritoVacioBoton{
+    display: block;
+    color: #370075;
+    background-color: #fdba31;
+    border: none;
+    margin: 10px auto;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
 }

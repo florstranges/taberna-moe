@@ -5,7 +5,10 @@ import Moe from './moe.png';
 import CartWidget from '../CartWidget/CartWidget';
 import {NavLink} from 'react-router-dom';
 
+import {useCartContext} from '../Context/Context';
+
 let Navbar = () => {
+    const {cart} = useCartContext();
     
     return (
         <>
@@ -21,7 +24,9 @@ let Navbar = () => {
                         <NavLink to='/cervezas' className="nav__a" >Cervezas</NavLink>
                         <NavLink to='/carrito' className="nav__a" >Carrito</NavLink>
                     </nav>
-                    <CartWidget />
+                    {
+                        !!cart.length && <CartWidget />
+                    }
                 </div>
             </header>
         </>

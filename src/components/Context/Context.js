@@ -1,4 +1,4 @@
-import {useContext, useState, useEffect, createContext} from 'react';
+import {useContext, useState, createContext} from 'react';
 
 export const CartContext = createContext();
 export const useCartContext = () => useContext(CartContext);
@@ -6,6 +6,7 @@ export const useCartContext = () => useContext(CartContext);
 const CartProvider = ({children}) => {
     const [cart, setCart] = useState([]);
     const [totalQty, setTotalQty] = useState(0);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const addToCart = (item, qty) => {
         const repeated = cart.findIndex(product => product.item.id === item.item.id);
@@ -18,13 +19,16 @@ const CartProvider = ({children}) => {
             setCart(newArray); 
         } else {
             setCart([...cart, item]);
+            setTotalPrice(totalPrice + (item.item.price * item.cantidad))
         }
     }
 
-    const removeItem = (id) => {
+    const removeItem = (id, price, qty) => {
         const arrayAfterDelete = cart.filter(product => product.item.id !== id);
 
         setCart(arrayAfterDelete);
+        setTotalPrice(totalPrice - price);
+        setTotalQty(totalQty - qty);
     }
 
     const clearCart = () => {
@@ -32,7 +36,7 @@ const CartProvider = ({children}) => {
     }
 
     return (
-        <CartContext.Provider value={{cart, totalQty, addToCart, removeItem, clearCart}}>
+        <CartContext.Provider value={{cart, totalQty, totalPrice,addToCart, removeItem, clearCart}}>
             {children}
         </CartContext.Provider>
     )
