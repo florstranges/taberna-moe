@@ -32,7 +32,7 @@ const ItemDetail = ({item}) => {
                 }
                 
                 {
-                    !showCounter && <Link to="/carrito">Terminar compra</Link>
+                    !showCounter && <Link to="/checkout">Terminar compra</Link>
                 }
             </div>
         </article>
