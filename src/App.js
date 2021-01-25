@@ -7,6 +7,7 @@ import Carrito from './components/Carrito/Carrito';
 import Cervezas from './components/Productos/Cervezas';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartProvider from './components/Context/Context';
+import Checkout from './components/Checkout/Checkout';
 
 
 function App() {
@@ -32,6 +33,10 @@ function App() {
 
         <Route path="/item/:id">
           <ItemDetailContainer/>
+        </Route>
+
+        <Route path="/checkout">
+            <Checkout />
         </Route>
 
         <Route path='/carrito'>

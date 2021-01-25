@@ -30,6 +30,7 @@ const ItemDetail = ({item}) => {
                 {
                     showCounter && <ItemCount stock={10} initial={1} onAdd={handleAddProduct} />
                 }
+                
                 {
                     !showCounter && <Link to="/carrito">Terminar compra</Link>
                 }
