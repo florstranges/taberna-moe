@@ -30,7 +30,7 @@ const ItemListContainer = () => {
                 console.log(err)
             })
 
-    })
+    }, []);
 
 
     return (
