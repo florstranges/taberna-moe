@@ -1,60 +1,71 @@
-import {useState, useContext} from 'react';
+import { useState, useContext } from 'react';
 import { getFirestore } from '../../firebase';
 import CartContext from '../Context/Context';
 import firebase from 'firebase/app';
 
 
 const Checkout = () => {
-    const db = getFirestore();
-    const [data, setData] = useContext(CartContext);
-    const [venta, completoVenta] = useState(false);
-    const [formData, setFormData] = useState({
-        nombre: '',
-        apellido: '',
-        email: '',
-        tel: '',
-    })
-    const [idCompra, setIdCompra] = useState('');
+    const [items,setItems] = useState([])
+    const [carrito,setCarrito] = useState([])
+    const [total,setTotal] = useState(0)
+    const [nombre,setNombre] = useState("")
+    const [telefono,setTelefono] = useState("")
+    const [email,setEmail] = useState("")
+    const [compra,setCompra] = useState("")
 
-    const handleChangeInput = (e) => {
-        setFormData({...formData, [e.target.name]: e.target.value});
-    }
 
-    const compra = {
-        user: formData,
-        items: data.items,
-        totalPrice: data.precioTotal,
-        date: firebase.firestore.Timestamp.fromDate(new Date()),
-    }
+    const manejarCompra = (e) => {
+        e.preventDefault()
+        const datosCompra = {
+            buyer: {
+                name: nombre,
+                phone: telefono,
+                email: email
+            },
+            items: [...carrito],
+            total: total
+        }
 
-    const handleSubmitForm = (e) => {
-        e.preventDefault();
+        const db = getFirestore()
+        const OrderCollection = db.collection("orders")
+        OrderCollection.add(datosCompra).then((resultado) => {
+            setCompra(resultado.id)
 
-        db.collection('ventas').add(compra)
-        .then(({id}) => {
-            completoVenta(true);
-            setIdCompra(id);
+            const Itemscollection = db.collection("items")
+            const batch = getFirestore().batch()
+
+            carrito.forEach(item => {
+                batch.update(Itemscollection.doc(item.id), { stock: 0 })
+            })
+
+            batch.commit()
+                .then(() => {
+                    console.log("Termino bien")
+                })
         })
-        .catch(e => console.log(e));
     }
 
+    
     return (
         <section className="checkout">
             <div className="container">
                 <h2>Checkout</h2>
 
-                {
-                    !venta ?
-                    <form onSubmit={handleSubmitForm}>
-                        <input type="text" value={formData.nombre} onChange={handleChangeInput} name="nombre" placeholder="Nombre" />
-                        <input type="text" value={formData.apellido} onChange={handleChangeInput} name="apellido" placeholder="Apellido" />
-                        <input type="email" value={formData.email} onChange={handleChangeInput} name="email" placeholder="E-mail" />
-                        <input type="tel" value={formData.tel} onChange={handleChangeInput} name="tel" placeholder="Teléfono" />
-                        
-                        <button>Pagar</button>
-                    </form> :
-                    <p>La compra se realizó correctamente, tu número de seguimiento es: {idCompra}</p>
-                }
+                <form onSubmit={manejarCompra}>
+                    <div>
+                        <p>Nombre y Apellido:</p>
+                        <input value={nombre} onChange={(e) => { setNombre(e.target.value) }} type="text" />
+                    </div>
+                    <div>
+                        <p>Telefono:</p>
+                        <input value={telefono} onChange={(e) => { setTelefono(e.target.value) }} type="text" />
+                    </div>
+                    <div>
+                        <p>Correo Electrónico:</p>
+                        <input value={email} onChange={(e) => { setEmail(e.target.value) }} type="email" />
+                    </div>
+                    <button type="submit">Comprar</button>
+                </form>
             </div>
         </section>
     )
