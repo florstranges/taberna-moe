@@ -19,6 +19,8 @@ const ItemDetail = ({item}) => {
         setShowCounter(false);
     }
 
+    
+
     return (
         <article>
             <div className="itemDetail">
