@@ -1,17 +1,17 @@
 import { useState, useContext } from 'react';
 import { getFirestore } from '../../firebase';
-import CartContext from '../Context/Context';
-import firebase from 'firebase/app';
+import {useCartContext} from '../../components/Context/Context';
+import './Checkout.css'
 
 
 const Checkout = () => {
-    const [items,setItems] = useState([])
     const [carrito,setCarrito] = useState([])
-    const [total,setTotal] = useState(0)
+    const [total,setTotal] = useState("")
     const [nombre,setNombre] = useState("")
     const [telefono,setTelefono] = useState("")
     const [email,setEmail] = useState("")
     const [compra,setCompra] = useState("")
+    const {cart} = useCartContext();
 
 
     const manejarCompra = (e) => {
@@ -22,13 +22,14 @@ const Checkout = () => {
                 phone: telefono,
                 email: email
             },
-            items: [...carrito],
+            items: cart,
             total: total
         }
 
         const db = getFirestore()
         const OrderCollection = db.collection("orders")
-        OrderCollection.add(datosCompra).then((resultado) => {
+        OrderCollection.add(datosCompra)
+        .then((resultado) => {
             setCompra(resultado.id)
 
             const Itemscollection = db.collection("items")
@@ -40,18 +41,20 @@ const Checkout = () => {
 
             batch.commit()
                 .then(() => {
-                    console.log("Termino bien")
+                    alert("Gracias por tu compra")
                 })
         })
+
+        console.log(datosCompra);
     }
 
     
     return (
         <section className="checkout">
             <div className="container">
-                <h2>Checkout</h2>
+                <h1>Checkout</h1>
 
-                <form onSubmit={manejarCompra}>
+                <form onSubmit={manejarCompra} className="formCheckout">
                     <div>
                         <p>Nombre y Apellido:</p>
                         <input value={nombre} onChange={(e) => { setNombre(e.target.value) }} type="text" />

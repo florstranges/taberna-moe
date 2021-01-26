@@ -62,3 +62,15 @@
     text-decoration: none;
     text-align: center;
 }
+
+.carrito_final{
+    display: block;
+    color: #370075;
+    background-color: #fdba31;
+    border: none;
+    margin: 10px auto;
+    font-weight: 600;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+}
