@@ -1,17 +1,16 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { getFirestore } from '../../firebase';
-import {useCartContext} from '../../components/Context/Context';
+import { useCartContext } from '../../components/Context/Context';
 import './Checkout.css'
 
 
 const Checkout = () => {
-    const [carrito,setCarrito] = useState([])
-    const [total,setTotal] = useState("")
-    const [nombre,setNombre] = useState("")
-    const [telefono,setTelefono] = useState("")
-    const [email,setEmail] = useState("")
-    const [compra,setCompra] = useState("")
-    const {cart} = useCartContext();
+    const {totalPrice} = useCartContext()
+    const [nombre, setNombre] = useState("")
+    const [telefono, setTelefono] = useState("")
+    const [email, setEmail] = useState("")
+    const { cart } = useCartContext();
+    const [orderId, setOrderId] = useState();
 
 
     const manejarCompra = (e) => {
@@ -23,32 +22,26 @@ const Checkout = () => {
                 email: email
             },
             items: cart,
-            total: total
+            total: totalPrice
         }
 
         const db = getFirestore()
         const OrderCollection = db.collection("orders")
-        OrderCollection.add(datosCompra)
-        .then((resultado) => {
-            setCompra(resultado.id)
-
-            const Itemscollection = db.collection("items")
-            const batch = getFirestore().batch()
-
-            carrito.forEach(item => {
-                batch.update(Itemscollection.doc(item.id), { stock: 0 })
+        OrderCollection
+            .add(datosCompra)
+            .then(({ id }) => {
+                setOrderId(id);
             })
-
-            batch.commit()
-                .then(() => {
-                    alert("Gracias por tu compra")
-                })
-        })
-
-        console.log(datosCompra);
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                alert("Compra realizada con éxito");
+                console.log(orderId);
+            });
     }
 
-    
+
     return (
         <section className="checkout">
             <div className="container">
