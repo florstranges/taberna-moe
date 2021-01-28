@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { getFirestore } from '../../firebase';
 import { useCartContext } from '../../components/Context/Context';
 import './Checkout.css'
+import MoeHappy from './moeHappy.png';
 
 
 const Checkout = () => {
-    const {totalPrice} = useCartContext()
+    const { totalPrice } = useCartContext()
     const [nombre, setNombre] = useState("")
     const [telefono, setTelefono] = useState("")
     const [email, setEmail] = useState("")
@@ -34,36 +35,46 @@ const Checkout = () => {
             })
             .catch((err) => {
                 console.log(err);
-            })
-            .finally(() => {
-                alert("Compra realizada con éxito");
-                console.log(orderId);
             });
     }
 
 
     return (
-        <section className="checkout">
-            <div className="container">
-                <h1>Checkout</h1>
+        <>
+            {
+                orderId ?
+                    <>
+                        <section className="compraRealizada">
+                            <h2>Compra realizada con exito!</h2>
+                            <p>Tu numero de orden es: <strong>{orderId}</strong> </p>
+                            <img src={MoeHappy} alt="Moe Happy" className="moeHappy" />
+                        </section>
+                    </>
 
-                <form onSubmit={manejarCompra} className="formCheckout">
-                    <div>
-                        <p>Nombre y Apellido:</p>
-                        <input value={nombre} onChange={(e) => { setNombre(e.target.value) }} type="text" />
-                    </div>
-                    <div>
-                        <p>Telefono:</p>
-                        <input value={telefono} onChange={(e) => { setTelefono(e.target.value) }} type="text" />
-                    </div>
-                    <div>
-                        <p>Correo Electrónico:</p>
-                        <input value={email} onChange={(e) => { setEmail(e.target.value) }} type="email" />
-                    </div>
-                    <button type="submit">Comprar</button>
-                </form>
-            </div>
-        </section>
+                    :
+                    <section className="checkout">
+                        <div className="container">
+                            <h1>Checkout</h1>
+
+                            <form onSubmit={manejarCompra} className="formCheckout">
+                                <div>
+                                    <p>Nombre y Apellido:</p>
+                                    <input value={nombre} onChange={(e) => { setNombre(e.target.value) }} type="text" />
+                                </div>
+                                <div>
+                                    <p>Telefono:</p>
+                                    <input value={telefono} onChange={(e) => { setTelefono(e.target.value) }} type="text" />
+                                </div>
+                                <div>
+                                    <p>Correo Electrónico:</p>
+                                    <input value={email} onChange={(e) => { setEmail(e.target.value) }} type="email" />
+                                </div>
+                                <button type="submit">Comprar</button>
+                            </form>
+                        </div>
+                    </section>
+            }
+        </>
     )
 }
 
