@@ -16,7 +16,7 @@ const ItemListContainer = () => {
         const db = getFirestore()
         const itemsColecction = db.collection("items")
 
-        itemsColecction.get("category", "==", 1)
+        itemsColecction.where('category', '==', {category})
         
             .then(docs => {
                 let arr = [];

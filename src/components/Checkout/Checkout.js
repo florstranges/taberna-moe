@@ -3,7 +3,8 @@ import { getFirestore } from '../../firebase';
 import { useCartContext } from '../../components/Context/Context';
 import './Checkout.css'
 import MoeHappy from './moeHappy.png';
-
+import firebase from "firebase/app";
+import "firebase/firestore";
 
 const Checkout = () => {
     const { totalPrice } = useCartContext()
@@ -22,6 +23,7 @@ const Checkout = () => {
                 phone: telefono,
                 email: email
             },
+            date: firebase.firestore.FieldValue.serverTimestamp(),
             items: cart,
             total: totalPrice
         }
@@ -35,10 +37,9 @@ const Checkout = () => {
             })
             .catch((err) => {
                 console.log(err);
-            });
+            })
+            .finally(console.log(datosCompra));
     }
-
-
     return (
         <>
             {
@@ -47,6 +48,7 @@ const Checkout = () => {
                         <section className="compraRealizada">
                             <h2>Compra realizada con exito!</h2>
                             <p>Tu numero de orden es: <strong>{orderId}</strong> </p>
+
                             <img src={MoeHappy} alt="Moe Happy" className="moeHappy" />
                         </section>
                     </>
@@ -59,15 +61,15 @@ const Checkout = () => {
                             <form onSubmit={manejarCompra} className="formCheckout">
                                 <div>
                                     <p>Nombre y Apellido:</p>
-                                    <input value={nombre} onChange={(e) => { setNombre(e.target.value) }} type="text" />
+                                    <input value={nombre} onChange={(e) => { setNombre(e.target.value) }} type="text" required/>
                                 </div>
                                 <div>
                                     <p>Telefono:</p>
-                                    <input value={telefono} onChange={(e) => { setTelefono(e.target.value) }} type="text" />
+                                    <input value={telefono} onChange={(e) => { setTelefono(e.target.value) }} type="text" required/>
                                 </div>
                                 <div>
                                     <p>Correo Electrónico:</p>
-                                    <input value={email} onChange={(e) => { setEmail(e.target.value) }} type="email" />
+                                    <input value={email} onChange={(e) => { setEmail(e.target.value) }} type="email" required/>
                                 </div>
                                 <button type="submit">Comprar</button>
                             </form>

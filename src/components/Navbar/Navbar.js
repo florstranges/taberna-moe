@@ -22,6 +22,7 @@ let Navbar = () => {
                 <div className="nav">
                     <nav>
                         <NavLink to='/cervezas' className="nav__a" >Cervezas</NavLink>
+                        <NavLink to='/vodka' className="nav__a" >Vodka</NavLink>
                         <NavLink to='/carrito' className="nav__a" >Carrito</NavLink>
                     </nav>
                     {

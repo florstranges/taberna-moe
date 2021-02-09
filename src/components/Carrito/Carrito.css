@@ -1,13 +1,21 @@
 .cartDetail{
     border: 2px solid #fdba31;
     box-shadow: 2px 2px 2px 1px #37007536;
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
     padding: 10px;
     margin: 10px;
     width: 300px;
     text-align: center;
+}
+
+.cartDetail button{
+    width: 200px;
+    color: #370075;
+    background-color: #fdba31;
+    border: none;
+    padding: 5px;
+    margin: 14px;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 .carrito{
@@ -21,29 +29,26 @@
     text-align: center;
 }
 
-.carrito button{
-    color: #370075;
-    background-color: #fdba31;
-    padding: 10px;
-    border: none;
-    margin: 15px;
-    font-weight: 600;
-    font-size: 18px;
-}
-
 .carrito_vacio{
-    display: inline-block;
-    width: 30%;
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
     color: #370075;
     background-color: #fdba31;
     border: none;
     margin-bottom: 20px;
     font-weight: 600;
     font-size: 20px;
+    border-radius: 20px;
 }
 
 .carritoContenedor{
     text-align: center;
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
 }
 
 .carritoVacioMensaje{
@@ -61,10 +66,16 @@
     font-size: 20px;
     text-decoration: none;
     text-align: center;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 .carrito_final{
-    display: block;
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
     color: #370075;
     background-color: #fdba31;
     border: none;
@@ -73,4 +84,10 @@
     font-size: 20px;
     text-decoration: none;
     text-align: center;
+    border-radius: 20px;
+}
+
+.total__botones{
+    margin: 10px;
+    font-size: 20px;
 }

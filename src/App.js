@@ -5,9 +5,11 @@ import Footer from './components/Footer/Footer';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Carrito from './components/Carrito/Carrito';
 import Cervezas from './components/Productos/Cervezas';
+import Vodka from './components/Productos/Vodka';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import CartProvider from './components/Context/Context';
 import Checkout from './components/Checkout/Checkout';
+import Home from './components/Home/Home';
 
 
 function App() {
@@ -20,11 +22,16 @@ function App() {
 
       <Switch>
         <Route path='/' exact>
-          <ItemListContainer />
+          <Home />
+          <ItemListContainer/>
         </Route>
 
         <Route path='/cervezas'>
           <Cervezas />
+        </Route>
+
+        <Route path='/vodka'>
+          <Vodka />
         </Route>
 
         <Route path="/category/:id">

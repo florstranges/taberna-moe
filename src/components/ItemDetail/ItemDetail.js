@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './ItemDetail.css';
 import ItemCount from '../ItemCount/ItemCount';
-import {Link} from 'react-router-dom';
-import {useCartContext} from '../Context/Context';
+import { Link } from 'react-router-dom';
+import { useCartContext } from '../Context/Context';
 
-const ItemDetail = ({item}) => {
-    const {addToCart} = useCartContext();
+const ItemDetail = ({ item }) => {
+    const { addToCart } = useCartContext();
     const [showCounter, setShowCounter] = useState(true);
 
     const handleAddProduct = (e, qty) => {
@@ -19,25 +19,31 @@ const ItemDetail = ({item}) => {
         setShowCounter(false);
     }
 
-    
+
 
     return (
-        <article>
-            <div className="itemDetail">
+
+        <div className="itemDetail">
+            <div className="itemDetails">
+                <img src={item.picture} alt="Imagen_producto" className="itemDetail__img" />
+            </div>
+            <div className="texto">
                 <h3>{item.title}</h3>
                 <p className="itemDetail__serial">S/N {item.category}</p>
-                <img src={item.picture} alt="Imagen_producto" className="itemDetail__img" />
                 <p>{item.description}</p>
                 <p className="itemDetail__precio" >$ {item.price}</p>
-                {
-                    showCounter && <ItemCount stock={10} initial={1} onAdd={handleAddProduct} />
-                }
-                
-                {
-                    !showCounter && <Link to="/carrito">Comprar</Link>
-                }
+            
+            
+            {
+                showCounter && <ItemCount stock={10} initial={1} onAdd={handleAddProduct} />
+            }
+
+            {
+                !showCounter && <Link to="/carrito">Comprar</Link>
+            }
             </div>
-        </article>
+        </div>
+
     )
 }
 

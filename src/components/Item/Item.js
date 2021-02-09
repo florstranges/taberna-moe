@@ -10,8 +10,10 @@ const Item = ({id,title,price,picture}) => {
                     <img src={picture} alt={`title-id`}/>
                 </div>
                 <div>
+                    <hr></hr>
                     <span>{title}</span>
-                    <p>${price}</p>
+                    <hr></hr>
+                    <p className="price">${price}</p>
                 </div>
                 <div className="item__detalle">
                     <NavLink to={`/item/${id}`} >Ver Detalle</NavLink>

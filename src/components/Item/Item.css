@@ -2,7 +2,30 @@
     color: #370075;
     text-decoration: none;
     font-weight: 700;
+    vertical-align: sub;
+    text-transform: uppercase;
 }
 .item__detalle{
     margin-top: 15px;
+    border: 2px solid #370075;
+    border-radius: 40px;
+    height: 40px;
+}
+
+.item__detalle:hover{
+    background-color: #c295f5;
+}
+
+.price{
+    font-weight: 700;
+    font-size: 22px;
+    margin: 20px;
+}
+
+hr{
+    height: 2px;
+    border: 0px solid #fdba31;
+    background-color: #fdba31;
+    color:#fdba31;
+    margin: 10px;
 }
