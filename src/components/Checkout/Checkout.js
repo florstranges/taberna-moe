@@ -11,7 +11,7 @@ const Checkout = () => {
     const [nombre, setNombre] = useState("")
     const [telefono, setTelefono] = useState("")
     const [email, setEmail] = useState("")
-    const { cart } = useCartContext();
+    const { cart, clearCart } = useCartContext();
     const [orderId, setOrderId] = useState();
 
 
@@ -33,6 +33,7 @@ const Checkout = () => {
         OrderCollection
             .add(datosCompra)
             .then(({ id }) => {
+                clearCart();
                 setOrderId(id);
             })
             .catch((err) => {

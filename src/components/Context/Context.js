@@ -33,6 +33,8 @@ const CartProvider = ({children}) => {
 
     const clearCart = () => {
         setCart([]);
+        setTotalPrice(0);
+        setTotalQty(0);
     }
 
     return (

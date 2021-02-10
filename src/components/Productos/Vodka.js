@@ -5,7 +5,8 @@ const Vodka = () => {
 
     return (
         <div>
-            <ItemListContainer />
+            <h1 className="item__titulo">Vodka</h1>
+            <ItemListContainer category="vodka"/>
 
         </div>
     )

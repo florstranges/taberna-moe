@@ -1,35 +1,44 @@
 import React, { useEffect, useState } from 'react';
 import './ItemListContainer.css';
 import ItemList from '../ItemList/ItemList';
-import { useParams } from 'react-router-dom';
 import { getFirestore } from '../../firebase';
 
 
-const ItemListContainer = () => {
+const ItemListContainer = ({category = null}) => {
 
     let [items, setItems] = useState([]);
-    const { id } = useParams()
-
-    console.log(items);
+    const db = getFirestore()
 
     useEffect(() => {
-        const db = getFirestore()
-        const itemsColecction = db.collection("items")
+        if(!category) {
+            db.collection("items")            
+                .get()
+                .then(docs => {
+                    let arr = [];
+                    docs.forEach(doc => {
+                        arr.push({id:doc.id, data:doc.data()})
+                    })
 
-        itemsColecction.where('category', '==', {category})
-        
-            .then(docs => {
-                let arr = [];
-                docs.forEach(doc => {
-                    arr.push({id:doc.id, data:doc.data()})
+                    setItems(arr);
                 })
+                .catch((err) => {
+                    console.log(err)
+                })
+        } else {
+            db.collection("items").where('category', '==', category)
+                .get()
+                .then(docs => {
+                    let arr = [];
+                    docs.forEach(doc => {
+                        arr.push({id:doc.id, data:doc.data()})
+                    })
 
-                setItems(arr);
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-
+                    setItems(arr);
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
     }, []);
 
 

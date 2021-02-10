@@ -7,9 +7,7 @@ const ItemList = ({items}) => {
 
     return (
         <>
-        <div className="item__titulo">
-            <h1>Nuestros Productos</h1>
-        </div>
+        
         <div className="bloque">
             {items.length > 0
             ? items.map(item=>{

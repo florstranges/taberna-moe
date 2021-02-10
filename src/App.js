@@ -34,10 +34,6 @@ function App() {
           <Vodka />
         </Route>
 
-        <Route path="/category/:id">
-          <ItemListContainer/> 
-        </Route>
-
         <Route path="/item/:id">
           <ItemDetailContainer/>
         </Route>
