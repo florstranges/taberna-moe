@@ -4,7 +4,7 @@ Primer proyecto con React.
 
 Proyecto desarrollado como parte del curso de React Js en Coderhouse.
 
-Link a la página del proyecto [https://taberna-moe.vercel.app/](https://pip.pypa.io/en/stable/)
+Link a la página del proyecto [https://taberna-moe.vercel.app/](https://taberna-moe.vercel.app/)
 
 ## Para comenzar, podés descargar o clonar este repositorio.
 
