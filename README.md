@@ -1,3 +1,22 @@
+# Taberna de Moe
+
+Primer proyecto con React.
+
+Proyecto desarrollado como parte del curso de React Js en Coderhouse.
+
+Link a la página del proyecto [https://taberna-moe.vercel.app/](https://pip.pypa.io/en/stable/)
+
+## Para comenzar, podés descargar o clonar este repositorio.
+
+## Para hacer funcionar este proyecto, se instalaron estas dependencias. Tenés que instalarlas para que el proyecto funcione
+
+• npm modules
+
+• firebase: 8.2.2
+
+• react-router-dom: 5.2.0
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
