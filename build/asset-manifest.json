@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.70e268d8.chunk.css",
+    "main.js": "/static/js/main.40e84773.chunk.js",
+    "main.js.map": "/static/js/main.40e84773.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.fad52db7.js",
+    "runtime-main.js.map": "/static/js/runtime-main.fad52db7.js.map",
+    "static/js/2.d212a759.chunk.js": "/static/js/2.d212a759.chunk.js",
+    "static/js/2.d212a759.chunk.js.map": "/static/js/2.d212a759.chunk.js.map",
+    "static/js/3.5909ecc2.chunk.js": "/static/js/3.5909ecc2.chunk.js",
+    "static/js/3.5909ecc2.chunk.js.map": "/static/js/3.5909ecc2.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.70e268d8.chunk.css.map": "/static/css/main.70e268d8.chunk.css.map",
+    "static/js/2.d212a759.chunk.js.LICENSE.txt": "/static/js/2.d212a759.chunk.js.LICENSE.txt",
+    "static/media/Moes_Bar.ee3bbd38.jpg": "/static/media/Moes_Bar.ee3bbd38.jpg",
+    "static/media/birra.9b1ffaa0.png": "/static/media/birra.9b1ffaa0.png",
+    "static/media/moe.7c425d2a.png": "/static/media/moe.7c425d2a.png",
+    "static/media/moeHappy.53ed5692.png": "/static/media/moeHappy.53ed5692.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fad52db7.js",
+    "static/js/2.d212a759.chunk.js",
+    "static/css/main.70e268d8.chunk.css",
+    "static/js/main.40e84773.chunk.js"
+  ]
+}
